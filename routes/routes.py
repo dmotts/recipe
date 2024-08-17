@@ -12,7 +12,11 @@ pdf_generator = PDFGenerator()
 @routes.route('/')
 def recipe():
     logger.info("Rendering recipe page.")
-    return render_template('recipe.html')
+    try:
+        return render_template('recipe.html', title='Mottley Drink')
+    except Exception as e:
+        logger.error(f"Failed to render template: {e}")
+        return render_template('error.html', error_code=500, error_message="Internal Server Error"), 500
 
 @routes.route('/download_pdf')
 def download_pdf():
