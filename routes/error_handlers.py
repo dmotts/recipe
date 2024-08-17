@@ -14,4 +14,3 @@ def not_found_error(error):
 def internal_error(error):
     logger.error(f"500 error occurred: {error}")
     return render_template('error.html', error_code=500, error_message="Internal Server Error"), 500
-
