@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemon & Ginger Tea</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lemon & ginger tea</h1>
+            <p class="author">Miriam Nice</p>
+            <div class="ratings">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="ratings-info">13 ratings</span>
+                <a href="#" class="rate-link">Rate</a>
+                <a href="#" class="comments-link">5 comments</a>
+            </div>
+            <a href="#" class="subscribe-link">Get 5 issues for £5 when you subscribe to our magazine</a>
+        </header>
+        <div class="recipe-details">
+            <img src="{{ url_for('static', filename='tea-image.jpg') }}" alt="Lemon & Ginger Tea" class="recipe-image">
+            <div class="recipe-info">
+                <p><strong>Prep:</strong> 5 mins</p>
+                <p><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Serves:</strong> 2</p>
+                <p>Combine lemon with root ginger to make this refreshing lemon and ginger tea that's a great alternative to caffeinated drinks. Sweeten with honey if you like.</p>
+                <p class="tags">Gluten-free | Healthy | Vegetarian</p>
+                <div class="nutrition">
+                    <p><strong>Nutrition: Per cup</strong></p>
+                    <ul>
+                        <li>kcal: 19</li>
+                        <li>fat: 0.1g</li>
+                        <li>saturates: 0g</li>
+                        <li>carbs: 4g</li>
+                        <li>sugars: 3g</li>
+                        <li>fibre: 0.5g</li>
+                        <li>protein: 0.2g</li>
+                        <li>salt: 0g</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="#" class="download-btn">Download now</a>
+            <button class="save-recipe">Save recipe</button>
+            <button class="print-recipe">Print</button>
+        </div>
+    </div>
+</body>
+</html>
