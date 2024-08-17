@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <h1>Mottley Drink</h1>
-            <a href="#" class="author">Daley Mottley</a>
+            <p class="author"><a href="#" class="author-link">Daley Mottley</a></p>
             <div class="ratings">
                 <span class="stars">⭐⭐⭐⭐⭐</span>
                 <span class="ratings-info">13 ratings</span>
@@ -87,10 +87,12 @@
             </div>
         </div>
         <div class="actions">
-            <a href="#" class="download-btn">Download now</a>
-            <button class="save-recipe">Save recipe</button>
-            <button class="print-recipe">Print</button>
+            <a href="{{ url_for('download_pdf') }}" class="download-btn">Download now</a>
+            <button class="save-recipe" onclick="bookmarkPage()">Save recipe</button>
+            <button class="share-recipe" onclick="sharePage()">Share</button>
+            <button class="print-recipe" onclick="printRecipe()">Print</button>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
