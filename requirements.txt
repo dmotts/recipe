@@ -5,3 +5,4 @@ WeasyPrint==56.1
 beautifulsoup4==4.12.2
 python-dotenv==1.0.0
 Werkzeug==2.3.7
+requests
