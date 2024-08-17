@@ -1,6 +1,7 @@
-Flask==2.2.3
+Flask==2.3.3
 Flask-FeatureFlags==0.6.0
 Jinja2==3.1.2
 WeasyPrint==56.1
 beautifulsoup4==4.12.2
 python-dotenv==1.0.0
+Werkzeug==2.3.7
