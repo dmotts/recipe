@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mottley Drink</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Recipes</h1>
-            <a href="{{ url_for('auth_routes.logout') }}">Logout</a>
+            <h1>Mottley Drink</h1>
         </header>
+
         <div class="recipe-list">
             {% for recipe in recipes %}
-            <div class="recipe">
-                <h2>{{ recipe.name }}</h2>
-                <p>{{ recipe.ingredients | join(', ') }}</p>
-                <p>{{ recipe.instructions }}</p>
-                <a href="{{ url_for('recipe_routes.edit_recipe', id=recipe._id) }}">Edit</a>
-                <form action="{{ url_for('recipe_routes.delete_recipe', id=recipe._id) }}" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
-            </div>
+                <div class="recipe-item">
+                    <h2>{{ recipe.title }}</h2>
+                    <p>{{ recipe.ingredients }}</p>
+                    <p>{{ recipe.preparation }}</p>
+                    <div class="actions">
+                        <a href="{{ url_for('recipe_routes.download_pdf', recipe_id=recipe.id) }}" class="download-btn">Download PDF</a>
+                        <button onclick="rateRecipe({{ recipe.id }}, 5)">Rate 5</button>
+                        <button onclick="favoriteRecipe({{ recipe.id }})">Favorite</button>
+                        <form action="{{ url_for('recipe_routes.comment', recipe_id=recipe.id) }}" method="post">
+                            <input type="text" name="content" placeholder="Add a comment">
+                            <button type="submit">Comment</button>
+                        </form>
+                    </div>
+                </div>
             {% endfor %}
         </div>
-        <a href="{{ url_for('recipe_routes.add_recipe') }}">Add Recipe</a>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
