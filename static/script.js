@@ -3,19 +3,7 @@ function printRecipe() {
 }
 
 function bookmarkPage() {
-    const title = document.title;
-    const url = window.location.href;
-
-    if (window.sidebar && window.sidebar.addPanel) { // Firefox <23
-        window.sidebar.addPanel(title, url, '');
-    } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorites
-        window.external.AddFavorite(url, title);
-    } else if (window.opera && window.print || window.sidebar && !(window.sidebar instanceof Node)) { // Opera <15 and Safari
-        this.title = title;
-        return true;
-    } else { // For browsers that do not support the bookmark feature
-        alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + ' + D to bookmark this page.');
-    }
+    alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + ' + D to bookmark this page.');
 }
 
 function sharePage() {
