@@ -59,6 +59,19 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-featureflags"
+version = "0.6"
+description = "Enable or disable features in Flask apps based on configuration"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Flask-FeatureFlags-0.6.tar.gz", hash = "sha256:fc8490e4e4c1eac03e306fade8ef4be3cddff6229aaa3bb96466ede7d107b241"},
+]
+
+[package.dependencies]
+Flask = "*"
+
+[[package]]
 name = "gunicorn"
 version = "21.2.0"
 description = "WSGI HTTP Server for UNIX"
@@ -220,4 +233,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11.0,<3.12"
-content-hash = "0a0178d5899b94b75bc831f3a4580c55532162e7ea71168f7eed71f2bd0ad0f3"
+content-hash = "864dcdf7e7a0de42f6e69e628eff60c82ffc5062d101cfbc6782ac0ad5ef0bc2"
