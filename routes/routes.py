@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, Response
 from services.pdf_service import PDFGenerator
 from config import Config
 import logging
@@ -25,7 +25,23 @@ def download_pdf():
         return jsonify({"error": "PDF download is disabled"}), 403
 
     logger.info("Download PDF route accessed.")
-    return pdf_generator.generate_pdf('recipe.html', 'Mottley_Drink_Recipe.pdf')
+    try:
+        # Generate PDF content without saving to server
+        html_content = pdf_generator.get_html('recipe.html')
+        html_with_css = pdf_generator.inject_css(html_content)
+        pdf_content = pdf_generator.convert_html_to_pdf(html_with_css)
+
+        # Stream the PDF content as a download to the client
+        return Response(
+            pdf_content,
+            mimetype='application/pdf',
+            headers={
+                "Content-Disposition": "attachment;filename=Mottley_Drink_Recipe.pdf"
+            }
+        )
+    except Exception as e:
+        logger.error(f"Failed to generate PDF: {str(e)}")
+        return jsonify({"error": "Failed to generate PDF"}), 500
 
 @routes.route('/bookmark')
 def bookmark():

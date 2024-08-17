@@ -1,7 +1,6 @@
 import logging
 import requests
-from flask import render_template, send_file, jsonify
-from pathlib import Path
+from flask import render_template, jsonify
 from config import Config
 
 logger = logging.getLogger(__name__)
@@ -63,20 +62,19 @@ class PDFGenerator:
             logger.error(f"CSS file not found: {self.css_path}")
             raise FileNotFoundError(f"CSS file not found: {self.css_path}")
 
-    def generate_pdf(self, html_template, output_filename):
+    def generate_pdf(self, html_template):
         """
         Generates a PDF from the HTML template by injecting CSS and converting it using PDF.co.
 
         Args:
             html_template (str): The name of the HTML template file.
-            output_filename (str): The name of the output PDF file.
 
         Returns:
-            Response: Flask response object containing the PDF file.
+            bytes: The binary content of the generated PDF.
         """
         if not Config.ENABLE_PDF_DOWNLOAD:
-            logger.warning("PDF download is disabled by configuration.")
-            return jsonify({"error": "PDF download is disabled"}), 403
+            logger.warning("PDF generation is disabled by configuration.")
+            raise PermissionError("PDF generation is disabled")
 
         logger.info(f"Generating PDF for template: {html_template}")
         try:
@@ -84,10 +82,10 @@ class PDFGenerator:
             html_with_css = self.inject_css(html_content)
             pdf_content = self.convert_html_to_pdf(html_with_css)
             logger.info("PDF generation successful.")
-            return self.save_pdf(pdf_content, output_filename)
+            return pdf_content
         except Exception as e:
             logger.error(f"Failed to generate PDF: {str(e)}")
-            return jsonify({"error": "Failed to generate PDF"}), 500
+            raise
 
     def get_html(self, template_name):
         """
@@ -138,19 +136,3 @@ class PDFGenerator:
         else:
             logger.error(f"Failed to generate PDF: {response.text}")
             raise RuntimeError(f"Failed to generate PDF: {response.text}")
-
-    def save_pdf(self, pdf_content, output_filename):
-        """
-        Saves the PDF content to a file and returns a Flask response for download.
-
-        Args:
-            pdf_content (bytes): The binary content of the PDF.
-            output_filename (str): The name of the output PDF file.
-
-        Returns:
-            Response: Flask response object containing the PDF file.
-        """
-        output_path = Path(output_filename)
-        output_path.write_bytes(pdf_content)
-        logger.info(f"PDF saved to {output_filename}.")
-        return send_file(output_path, as_attachment=True, download_name=output_filename)
