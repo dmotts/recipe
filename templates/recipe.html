@@ -3,49 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemon & Ginger Tea</title>
+    <title>Mottley Drink</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Lemon & ginger tea</h1>
-            <p class="author">Miriam Nice</p>
-            <div class="ratings">
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-                <span class="ratings-info">13 ratings</span>
-                <a href="#" class="rate-link">Rate</a>
-                <a href="#" class="comments-link">5 comments</a>
-            </div>
-            <a href="#" class="subscribe-link">Get 5 issues for £5 when you subscribe to our magazine</a>
+            <h1>Mottley Drink</h1>
         </header>
         <div class="recipe-details">
-            <img src="{{ url_for('static', filename='tea-image.jpg') }}" alt="Lemon & Ginger Tea" class="recipe-image">
-            <div class="recipe-info">
-                <p><strong>Prep:</strong> 5 mins</p>
-                <p><strong>Difficulty:</strong> Easy</p>
-                <p><strong>Serves:</strong> 2</p>
-                <p>Combine lemon with root ginger to make this refreshing lemon and ginger tea that's a great alternative to caffeinated drinks. Sweeten with honey if you like.</p>
-                <p class="tags">Gluten-free | Healthy | Vegetarian</p>
-                <div class="nutrition">
-                    <p><strong>Nutrition: Per cup</strong></p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>Beetroot</li>
+                <li>Cucumber (1 large or 2 medium)</li>
+                <li>Green apple (optional, about half an apple)</li>
+                <li>Lemon (1 whole, peeled)</li>
+                <li>Ginger (thumb-sized piece)</li>
+                <li>Broccoli (a small handful)</li>
+                <li>Water (enough to cover the ingredients)</li>
+                <li><strong>Optional:</strong> Banana (half of one)</li>
+                <li><strong>Optional:</strong> Turmeric (small piece of root or a pinch of powder)</li>
+                <li><strong>Alternative to Turmeric:</strong> Cinnamon (a small sprinkle)</li>
+            </ul>
+
+            <h2>Preparation:</h2>
+            <ol>
+                <li><strong>Prepare the Ingredients:</strong>
                     <ul>
-                        <li>kcal: 19</li>
-                        <li>fat: 0.1g</li>
-                        <li>saturates: 0g</li>
-                        <li>carbs: 4g</li>
-                        <li>sugars: 3g</li>
-                        <li>fibre: 0.5g</li>
-                        <li>protein: 0.2g</li>
-                        <li>salt: 0g</li>
+                        <li>Peel and chop the beetroot, cucumber, apple, lemon, ginger, and broccoli.</li>
+                        <li>If using, slice the banana and turmeric.</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-        <div class="actions">
-            <a href="#" class="download-btn">Download now</a>
-            <button class="save-recipe">Save recipe</button>
-            <button class="print-recipe">Print</button>
+                </li>
+                <li><strong>Cold Steeping:</strong> 
+                    <ul>
+                        <li>Place all ingredients (except the banana) in a jar or container.</li>
+                        <li>Add enough water to cover the ingredients.</li>
+                        <li>Refrigerate for several hours or overnight.</li>
+                    </ul>
+                </li>
+                <li><strong>Blending:</strong> 
+                    <ul>
+                        <li>Blend the steeped mixture with the banana (if using). If you chose cinnamon instead of turmeric, add it now. Blend until smooth.</li>
+                    </ul>
+                </li>
+                <li><strong>Straining:</strong>
+                    <ul>
+                        <li>Strain the juice through a fine mesh strainer, pressing the solids to extract as much liquid as possible.</li>
+                    </ul>
+                </li>
+                <li><strong>Serving:</strong>
+                    <ul>
+                        <li>Serve the juice chilled.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2>Benefits:</h2>
+            <ul>
+                <li><strong>Beetroot:</strong> Enhances blood circulation, crucial for heart and brain health, especially in seniors. The nitrates in beetroot can help lower blood pressure and improve oxygen flow to the brain, potentially boosting cognitive function.</li>
+                <li><strong>Cucumber:</strong> Keeps the body hydrated, aiding in digestion and skin health. The high water content and silica in cucumbers help maintain skin elasticity, which is beneficial as skin tends to lose moisture with age.</li>
+                <li><strong>Green Apple (Optional):</strong> Provides fiber to regulate digestion and help stabilize blood sugar levels. Its low glycemic index ensures it adds sweetness without causing spikes in blood glucose.</li>
+                <li><strong>Lemon:</strong> Rich in vitamin C, which supports the immune system and aids in the absorption of iron from other foods. Lemon also has alkalizing properties that help maintain the body’s pH balance, crucial for overall health.</li>
+                <li><strong>Ginger:</strong> Offers powerful anti-inflammatory benefits that can relieve joint pain and improve digestive health. Ginger's ability to stimulate digestive enzymes makes it easier for seniors to absorb nutrients effectively.</li>
+                <li><strong>Broccoli:</strong> High in fiber and antioxidants, broccoli helps stabilize blood sugar levels and supports bone health. It’s rich in sulforaphane, a compound that has been shown to protect against certain cancers and improve heart health.</li>
+                <li><strong>Banana (Optional):</strong> Adds potassium, which is essential for maintaining heart health and muscle function. Bananas also provide a creamy texture and natural sweetness, making the juice more palatable.</li>
+                <li><strong>Turmeric (Optional):</strong> Contains curcumin, which has strong anti-inflammatory and antioxidant properties. Turmeric supports joint health and may protect against age-related cognitive decline.</li>
+                <li><strong>Cinnamon (Alternative to Turmeric):</strong> Helps regulate blood sugar and improves insulin sensitivity, making it a great addition for those managing diabetes. Cinnamon also adds warmth to the juice, complementing the other flavors.</li>
+            </ul>
         </div>
     </div>
 </body>
