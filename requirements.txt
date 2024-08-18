@@ -1,8 +1,10 @@
-Flask==2.3.3
-Flask-FeatureFlags==0.6.0
+Flask==2.2.3
+Flask-SQLAlchemy==2.5.1
+Flask-Migrate==3.1.0
+psycopg2-binary==2.9.3  # PostgreSQL adapter for Railway
+python-dotenv==1.0.0
 Jinja2==3.1.2
 WeasyPrint==56.1
 beautifulsoup4==4.12.2
-python-dotenv==1.0.0
 Werkzeug==2.3.7
 requests

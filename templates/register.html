@@ -10,13 +10,29 @@
     <div class="container">
         <h2>Register</h2>
         <form action="{{ url_for('auth_routes.register') }}" method="POST">
-            <label for="username">Username</label>
-            <input type="text" name="username" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="{{ url_for('auth_routes.login') }}">Login here</a></p>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
     </div>
 </body>
 </html>
